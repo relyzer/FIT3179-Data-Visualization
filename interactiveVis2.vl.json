@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "AirBnB accommodations in New York City",
+  "data": {
+    "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/AB_NYC_2019.csv"
+  },
+  "transform": [
+    {"filter": "datum.reviews_per_month < 12"},
+    {"filter": "datum.price < 1000"}
+  ],
+  "selection": {
+    "neighbourhoodgroup_highlight": {
+      "type": "multi",
+      "fields": ["neighbourhood_group"],
+      "bind": "legend"
+    }
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "reviews_per_month",
+      "type": "quantitative",
+      "title": "Reviews received per month"
+    },
+    "y": {"field": "price", "title": "Price per night", "type": "quantitative"},
+    "color": {
+      "field": "neighbourhood_group",
+      "title": "Neighbourhood Group",
+      "type": "nominal",
+      "scale": {
+        "range": ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854"]
+      }
+    },
+    "opacity": {
+      "condition": {"selection": "neighbourhoodgroup_highlight", "value": 0.7},
+      "value": 0.005
+    },
+    "tooltip": [
+      {"field": "host_name", "title": "Host name", "type": "nominal"},
+      {"field": "neighbourhood", "title": "Neighbourhood", "type": "nominal"},
+      {"field": "room_type", "title": "Room type", "type": "nominal"},
+      {
+        "field": "price",
+        "title": "Price",
+        "type": "quantitative",
+        "format": ","
+      },
+      {
+        "field": "minimum_nights",
+        "title": "Minimum nights",
+        "type": "quantitative",
+        "format": ","
+      },
+      {
+        "field": "number_of_reviews",
+        "title": "Number of reviews",
+        "type": "quantitative",
+        "format": ","
+      },
+      {
+        "field": "reviews_per_month",
+        "title": "Reviews per month",
+        "type": "quantitative",
+        "format": ","
+      }
+    ]
+  },
+  "config": {}
+}
