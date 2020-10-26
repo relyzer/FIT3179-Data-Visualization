@@ -69,7 +69,7 @@
         <div class="pure-u-1-1">
           <div class="description description-left">
             <h2>Map of New York City</h2>
-            <p>The first column is used for description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+            <p>The outlines of the boundaries denote the designated area of New York City. Other landmasses and sea surround this area.</p>
           </div>
         </div>
         <div class="pure-u-1-1">
@@ -107,11 +107,11 @@
   var spec1 = "https://raw.githubusercontent.com/relyzer/FIT3179/main/NewYorkCity_Visualization.vl.json";
   var spec2 = "https://raw.githubusercontent.com/relyzer/FIT3179/main/interactiveVis2.vl.json";
 
-  vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis1', spec1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+   vegaEmbed('#vis2', spec2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
