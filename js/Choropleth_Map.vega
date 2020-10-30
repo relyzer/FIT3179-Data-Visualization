@@ -38,10 +38,14 @@
             "encoding": {
                 "color": {
                     "field": "sum_reviews",
+                    "title": "Total number of reviews",
                     "type": "quantitative",
                     "scale": {
                         "type": "linear",
-                        "scheme": "reds"
+                        "scheme": "greens"
+                    },
+                    "legend": {
+                        "offset": -130
                     }
                 },
                 "tooltip": [
