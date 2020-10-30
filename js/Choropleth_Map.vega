@@ -1,0 +1,84 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": "Choropleth map of suburbs in New York City",
+    "width": 800,
+    "height": 600,
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/Neighborhood%20Tabulation%20Areas%20(NTA).json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "Neighborhood Tabulation Areas (NTA)"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.ntaname",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/data/AB_NYC_2019_Ver2.csv"
+                        },
+                        "key": "neighbourhood",
+                        "fields": [
+                            "number_of_reviews"
+                        ]
+                    }
+                }
+            ],
+            "projection": {
+                "type": "albersUsa"
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke": "black",
+                "strokeWidth": 0.25
+            },
+            "encoding": {
+                "color": {
+                    "field": "",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "linear",
+                        "scheme": "reds"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.ntaname",
+                        "type": "nominal",
+                        "title": "Suburb"
+                    },
+                    {
+                        "field": "reviews",
+                        "type": "quantitative",
+                        "title": "Number of Reviews"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": "text",
+            "encoding": {
+                "text": {
+                    "field": "properties.ntaname",
+                    "type": "nominal"
+                },
+                "longitude": {
+                    "field": "properties.shape_breadth",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "properties.shape_leng",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "value": 10
+                },
+                "opacity": {
+                    "value": 0.6
+                }
+            }
+        }
+    ]
+}
