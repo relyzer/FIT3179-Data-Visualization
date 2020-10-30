@@ -1,0 +1,112 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "height": 250,
+    "title": {
+        "text": "Average price across different room types and districts",
+        "fontSize": 16
+    },
+    "data": {
+        "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/data/AB_NYC_2019_Ver2.csv"
+    },
+    "params": [
+        {
+            "name": "district_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Bronx",
+                    "Brooklyn",
+                    "Manhattan",
+                    "Queens",
+                    "Staten Island"
+                ],
+                "labels": [
+                    "Show All",
+                    "Bronx",
+                    "Brooklyn",
+                    "Manhattan",
+                    "Queens",
+                    "Staten Island"
+                ],
+                "name": "District Selection: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "district_selection == null || datum.neighbourhood_group == district_selection"
+        }
+    ],
+    "selection": {
+        "room_highlight": {
+            "type": "multi",
+            "fields": [
+                "room_type"
+            ],
+            "bind": "legend"
+        }
+    },
+    "width": {
+        "step": 12
+    },
+    "mark": "bar",
+    "encoding": {
+        "column": {
+            "field": "neighbourhood_group",
+            "title": "District",
+            "type": "nominal",
+            "spacing": 30
+        },
+        "y": {
+            "aggregate": "mean",
+            "field": "price",
+            "title": "Average price per night",
+            "axis": {
+                "grid": false
+            }
+        },
+        "x": {
+            "field": "room_type",
+            "axis": {
+                "title": ""
+            }
+        },
+        "color": {
+            "field": "room_type",
+            "title": "Accommodation type",
+            "scale": {
+                "range": [
+                    "#D3BB60",
+                    "#40CB6C",
+                    "#207991"
+                ]
+            },
+            "legend": {
+                "offset": -100
+            }
+        },
+        "opacity": {
+            "condition": {
+                "selection": "room_highlight",
+                "value": 0.6
+            },
+            "value": 0.2
+        },
+        "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Confirmed", "type": "quantitative", "format": ","},
+            {"field": "Active", "type": "quantitative", "format": ","},
+            {"field": "Deaths", "type": "quantitative", "format": ","},
+            {"field": "Recovered", "type": "quantitative", "format": ","}
+            ]
+    },
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        },
+        "axis": {
+            "domainWidth": 1
+        }
+    }
+}
