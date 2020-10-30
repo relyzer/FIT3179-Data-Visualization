@@ -19,12 +19,13 @@
                         "data": {
                             "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/data/AB_NYC_2019_Ver2.csv"
                         },
-                        "key": "neighbourhood",
+                        "key": "suburbs_sorted",
                         "fields": [
-                            "number_of_reviews"
+                            "Sum_of_number_of_reviews", "count_of_listings_suburb"
                         ]
                     }
-                }
+                },
+                {"calculate": "datum.Sum_of_number_of_reviews + 0.1", "as": "sum_reviews"}
             ],
             "projection": {
                 "type": "albersUsa"
@@ -36,7 +37,7 @@
             },
             "encoding": {
                 "color": {
-                    "field": "",
+                    "field": "sum_reviews",
                     "type": "quantitative",
                     "scale": {
                         "type": "linear",
@@ -50,7 +51,7 @@
                         "title": "Suburb"
                     },
                     {
-                        "field": "reviews",
+                        "field": "Sum_of_number_of_reviews",
                         "type": "quantitative",
                         "title": "Number of Reviews"
                     }
