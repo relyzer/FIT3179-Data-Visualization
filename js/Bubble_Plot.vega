@@ -147,6 +147,7 @@
         ]
     },
     "config": {
+        "background": "#E7F3F6",
         "view": {
             "stroke": "transparent"
         }
