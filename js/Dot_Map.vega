@@ -12,6 +12,20 @@
                     "feature": "Borough Boundaries"
                 }
             },
+            "transform": [
+                {
+                    "lookup": "properties.boro_name",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/data/AB_NYC_2019_Ver2.csv"
+                        },
+                        "key": "districts_sorted",
+                        "fields": [
+                            "avg_price_district", "count_of_listings_district"
+                        ]
+                    }
+                }
+            ],
             "projection": {
                 "type": "albersUsa"
             },
@@ -22,7 +36,7 @@
             "encoding": {
                 "color": {
                     "field": "properties.boro_name",
-                    "title": "Neighbourhood group",
+                    "title": "Districts",
                     "type": "nominal",
                     "scale": {
                         "domain": [
@@ -33,15 +47,19 @@
                             "Staten Island"
                         ],
                         "range": [
-                            "#040081",
-                            "#450081",
-                            "#81007D",
-                            "#810400",
-                            "#814500"
+                            "#66c2a5",
+                            "#fc8d62",
+                            "#8da0cb",
+                            "#e78ac3",
+                            "#a6d854"
                         ]
                     },
                     "legend": {
-                        "offset": -100
+                        "offset": -100,
+                        "labelFontSize": 14,
+                        "titleFont": "",
+                        "titleFontSize": 16
+
                     }
                 },
                 "tooltip": [
@@ -51,9 +69,15 @@
                         "title": "District"
                     },
                     {
-                        "field": "number_of_reviews",
+                        "field": "count_of_listings_district",
                         "type": "quantitative",
                         "title": "Number of listings"
+                    },
+                    {
+                        "field": "avg_price_district",
+                        "type": "quantitative",
+                        "title": "Average price per night",
+                        "format": ".2f"
                     }
                 ]
             }
@@ -79,7 +103,7 @@
                     "value": 2
                 },
                 "color": {
-                    "value": "yellow"
+                    "value": "#010173"
                 }
             }
         }

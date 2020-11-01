@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "title": "Choropleth map of suburbs in New York City",
+    "title": {"text": "Choropleth map of suburbs in New York City", "fontSize": 20},
     "width": 800,
     "height": 600,
     "layer": [
@@ -25,24 +25,25 @@
                         ]
                     }
                 },
-                {"calculate": "datum.Sum_of_number_of_reviews + 0.1", "as": "sum_reviews"}
+                {"calculate": "datum.Sum_of_number_of_reviews + 0.1", "as": "normalized_reviews"}
             ],
             "projection": {
                 "type": "albersUsa"
             },
             "mark": {
                 "type": "geoshape",
-                "stroke": "black",
+                "stroke": "grey",
                 "strokeWidth": 0.25
             },
             "encoding": {
                 "color": {
-                    "field": "sum_reviews",
+                    "field": "normalized_reviews",
                     "title": "Total number of reviews",
                     "type": "quantitative",
                     "scale": {
-                        "type": "linear",
-                        "scheme": "greens"
+                        "type": "threshold",
+                        "domain": [1000, 5000, 15000, 30000],
+                        "range": ["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"]
                     },
                     "legend": {
                         "offset": -130
@@ -61,29 +62,13 @@
                     }
                 ]
             }
-        },
-        {
-            "mark": "text",
-            "encoding": {
-                "text": {
-                    "field": "properties.ntaname",
-                    "type": "nominal"
-                },
-                "longitude": {
-                    "field": "properties.shape_breadth",
-                    "type": "quantitative"
-                },
-                "latitude": {
-                    "field": "properties.shape_leng",
-                    "type": "quantitative"
-                },
-                "size": {
-                    "value": 10
-                },
-                "opacity": {
-                    "value": 0.6
-                }
-            }
         }
-    ]
+    ],
+    "config": {
+        "background": "#E7F3F6",
+        "padding": {"left": 8, "top": 12, "right": 12, "bottom": 8},
+        "view": {
+            "stroke": "transparent"
+         }
+    }
 }

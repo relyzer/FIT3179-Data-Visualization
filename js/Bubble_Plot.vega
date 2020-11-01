@@ -2,38 +2,40 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 500,
     "height": 400,
-    "title": {"text": "Price against monthly reviews received", "fontSize": 20},
+    "title": {
+        "text": "Price against monthly reviews received",
+        "fontSize": 20
+    },
     "data": {
-        "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/AB_NYC_2019.csv"
+        "url": "https://raw.githubusercontent.com/relyzer/FIT3179/main/data/AB_NYC_2019_Ver2.csv"
     },
     "params": [
         {
-        "name": "roomtype_selection",
-        "bind": {
-            "input": "select",
-            "options": [
-            null,
-            "Private room",
-            "Entire home/apt",
-            "Shared room"
-            ],
-            "labels":[
-            "Show All",
-            "Private room",
-            "Entire home/apt",
-            "Shared room"
-            ],
-            "name": "Rental type Selection: "
+            "name": "roomtype_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Private room",
+                    "Entire home/apt",
+                    "Shared room"
+                ],
+                "labels": [
+                    "Show All",
+                    "Private room",
+                    "Entire home/apt",
+                    "Shared room"
+                ],
+                "name": "Rental type Selection: "
             }
-            }
-            ],
-           
+        }
+    ],
     "transform": [
         {
-            "filter": "datum.reviews_per_month < 12"
+            "filter": "datum.reviews_per_month < 10"
         },
         {
-            "filter": "datum.price < 1000"
+            "filter": "datum.price < 700"
         },
         {
             "filter": "datum.reviews_per_month > 0"
@@ -41,7 +43,9 @@
         {
             "filter": "datum.price > 0"
         },
-        {"filter": "roomtype_selection == null || datum.room_type == roomtype_selection"}
+        {
+            "filter": "roomtype_selection == null || datum.room_type == roomtype_selection"
+        }
     ],
     "selection": {
         "neighbourhoodgroup_highlight": {
@@ -52,19 +56,23 @@
             "bind": "legend"
         }
     },
-    "mark": "circle",
+    "mark": {"type": "point", "filled": true},
     "encoding": {
         "x": {
             "field": "reviews_per_month",
             "type": "quantitative",
             "title": "Reviews received per month",
-            "axis": {"grid": false}
+            "axis": {
+                "grid": false
+            }
         },
         "y": {
             "field": "price",
             "title": "Price per night",
             "type": "quantitative",
-            "axis": {"grid": false}
+            "axis": {
+                "grid": false
+            }
         },
         "color": {
             "field": "neighbourhood_group",
@@ -80,7 +88,10 @@
                 ]
             },
             "legend": {
-                "offset": -78
+                "offset": -100,
+                "labelFontSize": 12,
+                "titleFont": "",
+                "titleFontSize": 14
             }
         },
         "size": {
@@ -138,6 +149,6 @@
     "config": {
         "view": {
             "stroke": "transparent"
-         }
+        }
     }
 }
