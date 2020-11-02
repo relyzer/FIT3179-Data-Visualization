@@ -30,9 +30,31 @@
       font-family: 'Kanit', sans-serif;
     }
     
+    div.a {
+      font-size: 50px;
+      text-align: center;
+    }
+    
+    div.b {
+      
+    }
+    
+    .centering {
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+    
+    
     h1{
       font-weight: 900;
     }
+    
+    h2{
+      font-weight: 900;
+      font-size: 35px;
+    }
+    
      body{
        background-color: #47D0CB;
      }
@@ -70,9 +92,9 @@
    <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1 class="raleway">The essence of AirBnB in New York City (2019)</h1>
+        <div.a class="raleway">Thriving of AirBnB in New York City (2019)</div.a>
         <p class="libre">New York is a highly-populated and one of the more popular cities in America. With tourism thriving and boasting of some of the most expensive real estate properties, it is no wonder that many would consider renting out accommodations through AirBnB. 
-          This webpage helps readers to make informed decisions, take advantage of trends and formulate the most profitable strategy.</p>
+          <br>This webpage helps readers to make informed decisions, take advantage of trends and formulate the most profitable strategy.</p>
       </div>
     </div>
   <!-- end pure grid group -->
@@ -80,12 +102,12 @@
     <!-- pure grid group -->
     <div class="pure-g">
         <div class="pure-u-1-1">
-          <div class="description description-left">
+          <div class="description description-left centering">
             <h2 class="raleway">Geographical location of AirBnB listings</h2>
             <p class="libre">The outlines of the boundaries denote the designated area of New York City. Other landmasses and sea surround this area.</p>
           </div>
         </div>
-        <div class="pure-u-1-1">
+        <div class="pure-u-1-1 centering">
           <div id="vis1" class="vis-container"></div>
         </div>
     </div>
@@ -93,13 +115,13 @@
    
    <!-- pure grid group -->
     <div class="pure-g">
-        <div class="pure-u-1-1">
+        <div class="pure-u-3-4">
           <div class="description description-left">
             <h2 class="raleway">Choropleth map of AirBnB in New York City</h2>
             <p class="libre">Illustrates clearly which suburbs thrive well in conducting AirBnB rentals and suburbs that are less desirable to users of the app.</p>
           </div>
         </div>
-        <div class="pure-u-1-1">
+        <div class="pure-u-1-4">
           <div id="vis3" class="vis-container"></div>
         </div>
     </div>
