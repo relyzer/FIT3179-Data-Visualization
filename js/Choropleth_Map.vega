@@ -42,8 +42,8 @@
                     "type": "quantitative",
                     "scale": {
                         "type": "threshold",
-                        "domain": [1000, 5000, 15000, 30000],
-                        "range": ["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"]
+                        "domain": [100, 4000, 15000, 30000],
+                        "range": ["#edf8e9", "#bae4b3", "#74c476", "#31a354", "#006d2c"]
                     },
                     "legend": {
                         "offset": -130
@@ -56,9 +56,10 @@
                         "title": "Suburb"
                     },
                     {
-                        "field": "Sum_of_number_of_reviews",
+                        "field": "normalized_reviews",
                         "type": "quantitative",
-                        "title": "Number of Reviews"
+                        "title": "Sum of reviews",
+                        "format": ".0f"
                     }
                 ]
             }
@@ -69,6 +70,9 @@
         "padding": {"left": 8, "top": 12, "right": 12, "bottom": 8},
         "view": {
             "stroke": "transparent"
-         }
+         },
+         "axis": {
+            "titleFont": "Libre Baskerville"
+        }
     }
 }

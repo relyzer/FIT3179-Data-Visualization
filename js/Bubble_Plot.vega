@@ -56,7 +56,10 @@
             "bind": "legend"
         }
     },
-    "mark": {"type": "point", "filled": true},
+    "mark": {
+        "type": "point",
+        "filled": true
+    },
     "encoding": {
         "x": {
             "field": "reviews_per_month",
@@ -150,6 +153,9 @@
         "background": "#E7F3F6",
         "view": {
             "stroke": "transparent"
+        },
+        "axis": {
+            "titleFont": "Libre Baskerville"
         }
     }
 }

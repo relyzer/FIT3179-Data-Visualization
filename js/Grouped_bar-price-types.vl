@@ -162,7 +162,8 @@
             "stroke": "transparent"
         },
         "axis": {
-            "domainWidth": 1
+            "domainWidth": 1,
+            "titleFont": "Libre Baskerville"
         }
     }
 }

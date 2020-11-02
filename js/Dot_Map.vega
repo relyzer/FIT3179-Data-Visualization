@@ -2,7 +2,10 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 600,
     "height": 800,
-    "title": {"text": "AirBnB accommodations in New York", "fontSize": 20},
+    "title": {
+        "text": "AirBnB accommodations in New York",
+        "fontSize": 20
+    },
     "layer": [
         {
             "data": {
@@ -21,7 +24,8 @@
                         },
                         "key": "districts_sorted",
                         "fields": [
-                            "avg_price_district", "count_of_listings_district"
+                            "avg_price_district",
+                            "count_of_listings_district"
                         ]
                     }
                 }
@@ -59,7 +63,6 @@
                         "labelFontSize": 14,
                         "titleFont": "",
                         "titleFontSize": 16
-
                     }
                 },
                 "tooltip": [
@@ -110,9 +113,17 @@
     ],
     "config": {
         "background": "#E7F3F6",
-        "padding": {"left": 8, "top": 12, "right": 12, "bottom": 8},
+        "padding": {
+            "left": 8,
+            "top": 12,
+            "right": 12,
+            "bottom": 8
+        },
         "view": {
             "stroke": "transparent"
-         }
+        },
+         "axis": {
+            "titleFont": "Libre Baskerville"
+        }
     }
 }
