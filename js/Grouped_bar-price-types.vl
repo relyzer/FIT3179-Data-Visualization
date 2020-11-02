@@ -41,6 +41,7 @@
                     "x": {
                         "field": "room_type",
                         "axis": {
+                            "labels": false,
                             "title": ""
                         }
                     },
