@@ -1,21 +1,23 @@
 # FIT3179
 
+## Click on this link to view the visualization: https://relyzer.github.io/FIT3179/  
+  
 GitHub repository created for Monash University FIT3179 Data Visualization - Assignment 2
   
-**Dataset**  
-Airbnb:  
+### **Dataset**  
+#### Airbnb:  
 https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
 
-Boundaries / Suburbs:  
+#### Boundaries / Suburbs:  
 https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm
 https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas-NTA-/cpf4-rkhq
   
   
-**Tool used:**  
+### **Tool used:**  
 https://vega.github.io/vega-lite/
   
   
-**Description**  
+### **Description**  
 This is to showcase my progress with using vega-lite to create data visualizations based on publicly-available data.  
 
 I used a combintation of data that outlines the boundaries of states/districts and data that records the number of AirBnB rentals, along with other information, located in different suburbs and districts.  
