@@ -1,6 +1,6 @@
 # FIT3179
 
-## Click on this link to view the visualization: https://relyzer.github.io/FIT3179/  
+## Click on this link to view the visualization: https://relyzer.github.io/FIT3179-Data-Visualization/
   
 GitHub repository created for Monash University FIT3179 Data Visualization - Assignment 2
   
