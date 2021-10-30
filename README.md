@@ -20,7 +20,7 @@ https://vega.github.io/vega-lite/
 ### **Description**  
 This is to showcase my progress with using vega-lite to create data visualizations based on publicly-available data.  
 
-I used a combintation of data that outlines the boundaries of states/districts and data that records the number of AirBnB rentals, along with other information, located in different suburbs and districts.  
+I used a combination of data that outlines the boundaries of states/districts in the US and data that records the number of AirBnB rentals, along with other details of the different suburbs and districts.  
 
 The dataset is recorded in 2019, across multiple neighbourhood groups and rental property type.  
 It is relevant to the AirBnB domain as it showcases the most recent geographical locations of AirBnB listings and how there is a correlation between the number of reviews received (which determines traffic being experienced in AirBnB) and various factors such as minimum night requirements, pricing and the district it is in.  
